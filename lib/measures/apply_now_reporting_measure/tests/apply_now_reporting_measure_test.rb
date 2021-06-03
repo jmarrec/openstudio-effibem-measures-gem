@@ -1,9 +1,11 @@
+# frozen_string_literal: true
+
 # insert your copyright here
 
 require 'openstudio'
 require 'openstudio/measure/ShowRunnerOutput'
 require 'minitest/autorun'
-require_relative '../measure.rb'
+require_relative '../measure'
 require 'fileutils'
 
 class ApplyNowReportingMeasureTest < Minitest::Test
@@ -35,7 +37,7 @@ class ApplyNowReportingMeasureTest < Minitest::Test
     runner = OpenStudio::Measure::OSRunner.new(osw)
 
     # load the test model
-    model = OpenStudio::Model::exampleModel()
+    model = OpenStudio::Model.exampleModel
 
     # store the number of spaces in the seed model
     num_spaces_seed = model.getSpaces.size
@@ -53,7 +55,6 @@ class ApplyNowReportingMeasureTest < Minitest::Test
 
     # assert that it ran correctly
     assert_equal('Success', result.value.valueName)
-
 
     puts File.absolute_path('./reports')
   end
