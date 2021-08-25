@@ -1,7 +1,6 @@
-# insert your copyright here
+# Copyright (c) 2021 Julien Marrec and EffiBEM
 
-# see the URL below for information on how to write OpenStudio measures
-# http://nrel.github.io/OpenStudio-user-documentation/reference/measure_writing_guide/
+# This a test measure in relation with https://github.com/NREL/OpenStudio/issues/4156
 
 # start the measure
 class ATestMeasure < OpenStudio::Measure::ModelMeasure
@@ -23,13 +22,11 @@ class ATestMeasure < OpenStudio::Measure::ModelMeasure
 
   # define the arguments that the user will input
   def arguments(model)
-    args = OpenStudio::Measure::OSArgumentVector.new
 
-    # the name of the space to add to the model
-    space_name = OpenStudio::Measure::OSArgument.makeStringArgument('space_name', true)
-    space_name.setDisplayName('New space name')
-    space_name.setDescription('This name will be used as the name of the new space.')
-    args << space_name
+    # This calls resources/resource.rb with calls
+    # resources/subfolder/subresource.rb which in turn loads a json
+    # from resources/data/arguments.json
+    return make_arguments()
 
     return args
   end
