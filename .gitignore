@@ -12,11 +12,14 @@
 /spec/test/
 /spec/openstudio/core/output/*
 /tmp/
+# measures tests
 /test/
-/lib/measures/test_results
-/lib/measures/.rubocop*
+/lib/measures/**/test_results
+/lib/measures/**/.rubocop*
 /lib/measures/staged
 /lib/measures/staged/*
+/lib/measures/**/tests/output
+/lib/measures/**/tests/**/html_reports
 
 # rspec failure tracking
 .rspec_status
@@ -24,10 +27,6 @@
 # Ignore IDE files
 /.idea
 *.rubocop-http*
-
-# measures tests
-lib/measures/.rubocop.yml
-lib/measures/test_results/*
 
 # runner conf
 runner.conf
