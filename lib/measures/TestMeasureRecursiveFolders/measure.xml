@@ -1,28 +1,23 @@
 <?xml version="1.0"?>
 <measure>
   <schema_version>3.0</schema_version>
-  <error>undefined method `make_arguments' for #&lt;ATestMeasure:0x000055a742c42568&gt;</error>
-  <name>a_test_measure</name>
+  <name>test_measure_recursive_folders</name>
   <uid>b79e1024-8a7a-4c9d-91bf-6c11de58f4a9</uid>
-  <version_id>6523e813-2be6-4e65-9336-f3385682ba82</version_id>
-  <version_modified>20210825T112544Z</version_modified>
+  <version_id>9936b9e7-8396-45cf-aeb7-db203c93d2cf</version_id>
+  <version_modified>20210825T113625Z</version_modified>
   <xml_checksum>825E3A16</xml_checksum>
-  <class_name>ATestMeasure</class_name>
-  <display_name>Test Measure</display_name>
-  <description>Description</description>
-  <modeler_description>Modeler Description</modeler_description>
+  <class_name>TestMeasureRecursiveFolders</class_name>
+  <display_name>Test Measure Recursive Folders</display_name>
+  <description>A Measure to test whether supporting recursive subfolders works</description>
+  <modeler_description>This a test measure in relation with https://github.com/NREL/OpenStudio/issues/4156</modeler_description>
   <arguments>
     <argument>
       <name>space_name</name>
-      <display_name>New space name</display_name>
+      <display_name>New Space Name from JSON</display_name>
       <description>This name will be used as the name of the new space.</description>
       <type>String</type>
-      <units></units>
       <required>true</required>
       <model_dependent>false</model_dependent>
-      <default_value></default_value>
-      <min_value></min_value>
-      <max_value></max_value>
     </argument>
   </arguments>
   <outputs />
@@ -39,12 +34,6 @@
   </attributes>
   <files>
     <file>
-      <filename>LICENSE.md</filename>
-      <filetype>md</filetype>
-      <usage_type>license</usage_type>
-      <checksum>CD7F5672</checksum>
-    </file>
-    <file>
       <filename>README.md.erb</filename>
       <filetype>erb</filetype>
       <usage_type>readmeerb</usage_type>
@@ -57,16 +46,28 @@
       <checksum>00000000</checksum>
     </file>
     <file>
-      <filename>a_test_measure_test.rb</filename>
-      <filetype>rb</filetype>
-      <usage_type>test</usage_type>
-      <checksum>127B7081</checksum>
-    </file>
-    <file>
       <filename>example_model.osm</filename>
       <filetype>osm</filetype>
       <usage_type>test</usage_type>
       <checksum>53D14E69</checksum>
+    </file>
+    <file>
+      <filename>resource.rb</filename>
+      <filetype>rb</filetype>
+      <usage_type>resource</usage_type>
+      <checksum>1C329F87</checksum>
+    </file>
+    <file>
+      <filename>LICENSE.md</filename>
+      <filetype>md</filetype>
+      <usage_type>license</usage_type>
+      <checksum>27B7D6EC</checksum>
+    </file>
+    <file>
+      <filename>a_test_measure_test.rb</filename>
+      <filetype>rb</filetype>
+      <usage_type>test</usage_type>
+      <checksum>EDAD1FB6</checksum>
     </file>
     <file>
       <version>
@@ -77,19 +78,13 @@
       <filename>measure.rb</filename>
       <filetype>rb</filetype>
       <usage_type>script</usage_type>
-      <checksum>E1DF7005</checksum>
-    </file>
-    <file>
-      <filename>resource.rb</filename>
-      <filetype>rb</filetype>
-      <usage_type>resource</usage_type>
-      <checksum>1C329F87</checksum>
+      <checksum>3C7F948B</checksum>
     </file>
     <file>
       <filename>subfolder/subresource.rb</filename>
       <filetype>rb</filetype>
       <usage_type>resource</usage_type>
-      <checksum>463205F0</checksum>
+      <checksum>723CBD80</checksum>
     </file>
     <file>
       <filename>data/arguments.json</filename>
@@ -101,7 +96,7 @@
       <filename>README.md</filename>
       <filetype>md</filetype>
       <usage_type>readme</usage_type>
-      <checksum>01DF739F</checksum>
+      <checksum>7627345F</checksum>
     </file>
   </files>
 </measure>

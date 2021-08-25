@@ -6,7 +6,7 @@ require 'minitest/autorun'
 require_relative '../measure.rb'
 require 'fileutils'
 
-class ATestMeasureTest < Minitest::Test
+class TestMeasureRecursiveFoldersTest < Minitest::Test
   # def setup
   # end
 
@@ -15,7 +15,7 @@ class ATestMeasureTest < Minitest::Test
 
   def test_number_of_arguments_and_argument_names
     # create an instance of the measure
-    measure = ATestMeasure.new
+    measure = TestMeasureRecursiveFolders.new
 
     # make an empty model
     model = OpenStudio::Model::Model.new
@@ -28,7 +28,7 @@ class ATestMeasureTest < Minitest::Test
 
   def test_bad_argument_values
     # create an instance of the measure
-    measure = ATestMeasure.new
+    measure = TestMeasureRecursiveFolders.new
 
     # create runner with empty OSW
     osw = OpenStudio::WorkflowJSON.new
@@ -67,7 +67,7 @@ class ATestMeasureTest < Minitest::Test
 
   def test_good_argument_values
     # create an instance of the measure
-    measure = ATestMeasure.new
+    measure = TestMeasureRecursiveFolders.new
 
     # create runner with empty OSW
     osw = OpenStudio::WorkflowJSON.new

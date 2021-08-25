@@ -1,23 +1,22 @@
 # Copyright (c) 2021 Julien Marrec and EffiBEM
+require_relative 'resources/resource'
 
-# This a test measure in relation with https://github.com/NREL/OpenStudio/issues/4156
+class TestMeasureRecursiveFolders < OpenStudio::Measure::ModelMeasure
 
-# start the measure
-class ATestMeasure < OpenStudio::Measure::ModelMeasure
   # human readable name
   def name
     # Measure name should be the title case of the class name.
-    return 'Test Measure'
+    return 'Test Measure Recursive Folders'
   end
 
   # human readable description
   def description
-    return 'Description'
+    return 'A Measure to test whether supporting recursive subfolders works'
   end
 
   # human readable description of modeling approach
   def modeler_description
-    return 'Modeler Description'
+    return 'This a test measure in relation with https://github.com/NREL/OpenStudio/issues/4156'
   end
 
   # define the arguments that the user will input
@@ -67,4 +66,4 @@ class ATestMeasure < OpenStudio::Measure::ModelMeasure
 end
 
 # register the measure to be used by the application
-ATestMeasure.new.registerWithApplication
+TestMeasureRecursiveFolders.new.registerWithApplication
