@@ -1,0 +1,6 @@
+{
+  "space_name": {
+    "display_name": "New Space Name from JSON",
+    "description": "This name will be used as the name of the new space."
+  }
+}
