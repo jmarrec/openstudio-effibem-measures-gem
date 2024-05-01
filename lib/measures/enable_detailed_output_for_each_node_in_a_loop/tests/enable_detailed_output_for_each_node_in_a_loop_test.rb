@@ -2,17 +2,19 @@
 # email: julien.marrec@gmail.com
 
 require 'openstudio'
-require 'openstudio/ruleset/ShowRunnerOutput'
+require 'openstudio/measure/ShowRunnerOutput'
 require 'minitest/autorun'
 require_relative '../measure'
 require 'fileutils'
 require 'json'
+require 'pathname'
 
 class EnableDetailedOutputForEachNodeInALoopTest < Minitest::Test
   def setup
     # load the test model
     translator = OpenStudio::OSVersion::VersionTranslator.new
-    path = OpenStudio::Path.new("#{File.dirname(__FILE__)}/2plantloops_oneairloop_named_nodes.osm")
+    test_model = Pathname.new(__dir__) / '2plantloops_oneairloop_named_nodes.osm'
+    path = OpenStudio.toPath(test_model.to_s)
     model = translator.loadModel(path)
     assert(!model.empty?)
     model = model.get
@@ -67,7 +69,8 @@ class EnableDetailedOutputForEachNodeInALoopTest < Minitest::Test
     measure = EnableDetailedOutputForEachNodeInALoop.new
 
     # create an instance of a runner
-    runner = OpenStudio::Ruleset::OSRunner.new
+    osw = OpenStudio::WorkflowJSON.new
+    runner = OpenStudio::Measure::OSRunner.new(osw)
 
     # load the test model
     model = setup
@@ -80,7 +83,7 @@ class EnableDetailedOutputForEachNodeInALoopTest < Minitest::Test
 
     # get arguments
     arguments = measure.arguments(model)
-    argument_map = OpenStudio::Ruleset.convertOSArgumentVectorToMap(arguments)
+    argument_map = OpenStudio::Measure.convertOSArgumentVectorToMap(arguments)
 
     # populate argument with specified hash value if specified
     arguments.each do |arg|
@@ -116,9 +119,8 @@ class EnableDetailedOutputForEachNodeInALoopTest < Minitest::Test
 
   def test_all_cases
     tests_json = {}
-    File.open("#{File.dirname(__FILE__)}/test_cases.json", 'r:UTF-8') do |f|
-      tests_json = JSON.parse(f)
-    end
+    json_test_file = Pathname.new(__dir__) / 'test_cases.json'
+    tests_json = JSON.parse(json_test_file.read)
 
     puts '########################################'
     puts 'Test cases to run:'

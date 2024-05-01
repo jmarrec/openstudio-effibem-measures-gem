@@ -3,8 +3,8 @@
   <schema_version>3.1</schema_version>
   <name>enable_detailed_output_for_each_node_in_a_loop</name>
   <uid>51e43c5a-ac02-4166-8eb7-a31880af3300</uid>
-  <version_id>529aaecd-a5ce-4486-a320-babf50e053d6</version_id>
-  <version_modified>2024-05-01T20:19:05Z</version_modified>
+  <version_id>2983c61a-1770-41b5-a69b-3e0108295e14</version_id>
+  <version_modified>2024-05-01T20:34:54Z</version_modified>
   <xml_checksum>E00AC0AB</xml_checksum>
   <class_name>EnableDetailedOutputForEachNodeInALoop</class_name>
   <display_name>Enable Detailed Output for Each Node in a Loop</display_name>
@@ -498,7 +498,7 @@ The user is also asked to specify whether or not he wants to include the demand 
       <filename>measure.rb</filename>
       <filetype>rb</filetype>
       <usage_type>script</usage_type>
-      <checksum>1C03FA33</checksum>
+      <checksum>25736865</checksum>
     </file>
     <file>
       <filename>2plantloops_oneairloop_named_nodes.osm</filename>
@@ -510,7 +510,7 @@ The user is also asked to specify whether or not he wants to include the demand 
       <filename>enable_detailed_output_for_each_node_in_a_loop_test.rb</filename>
       <filetype>rb</filetype>
       <usage_type>test</usage_type>
-      <checksum>234ACAD0</checksum>
+      <checksum>1C3E7E5F</checksum>
     </file>
     <file>
       <filename>test_cases.json</filename>
