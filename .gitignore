@@ -28,6 +28,8 @@
 /.idea
 *.rubocop-http*
 
+__pycache__
+
 # runner conf
 runner.conf
 
