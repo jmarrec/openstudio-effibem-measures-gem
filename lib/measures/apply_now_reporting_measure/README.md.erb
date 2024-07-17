@@ -5,29 +5,35 @@
 # <%= name %>
 
 ## Description
+
 <%= description %>
 
 ## Modeler Description
+
 <%= modelerDescription %>
 
 ## Measure Type
+
 <%= measureType %>
 
 ## Taxonomy
+
 <%= taxonomy %>
 
 ## Arguments
 
 <% arguments.each do |argument| %>
 ### <%= argument[:display_name] %>
+
 <%= argument[:description] %>
-**Name:** <%= argument[:name] %>,
-**Type:** <%= argument[:type] %>,
-**Units:** <%= argument[:units] %>,
-**Required:** <%= argument[:required] %>,
-**Model Dependent:** <%= argument[:model_dependent] %>
+
+* **Name:** <%= argument[:name] %>
+* **Type:** <%= argument[:type] %>
+<% if argument[:units] %>* **Units:** <%= argument[:units] %><% end %>
+* **Required:** <%= argument[:required] %>
+* **Model Dependent:** <%= argument[:model_dependent] %>
 <% if argument[:type] == "Choice" && !argument[:model_dependent]%>
-**Choice Display Names** <%= argument[:choice_display_names] %>
+* **Choice Display Names:** <%= argument[:choice_display_names] %>
 <% end %>
 <% end %>
 
@@ -37,6 +43,7 @@
 
 <% if outputs.size > 0 %>
 ## Outputs
+
 <% output_names = [] %>
 <% outputs.each do |output| %>
 <% output_names << output[:display_name] %>

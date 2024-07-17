@@ -1,7 +1,7 @@
-# Author: Julien Marrec
-# email: julien.marrec@gmail.com
+# *******************************************************************************
+# Copyright (c) 2017-2024 Julien Marrec and EffiBEM
+# *******************************************************************************
 
-# start the measure
 class SetSiteWaterMainsTemperature < OpenStudio::Measure::ModelMeasure
 
   # human readable name

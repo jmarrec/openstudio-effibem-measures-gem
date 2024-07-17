@@ -1,3 +1,7 @@
+# *******************************************************************************
+# Copyright (c) 2017-2024 Julien Marrec and EffiBEM
+# *******************************************************************************
+
 require 'openstudio'
 require 'openstudio/measure/ShowRunnerOutput'
 require 'minitest/autorun'

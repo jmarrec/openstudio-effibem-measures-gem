@@ -1,3 +1,7 @@
+# *******************************************************************************
+# Copyright (c) 2017-2024 Julien Marrec and EffiBEM
+# *******************************************************************************
+
 require_relative 'subfolder/subresource.rb'
 
 def make_arguments

@@ -1,6 +1,8 @@
-# frozen_string_literal: true
+# *******************************************************************************
+# Copyright (c) 2017-2024 Julien Marrec and EffiBEM
+# *******************************************************************************
 
-# insert your copyright here
+# frozen_string_literal: true
 
 require 'openstudio'
 require 'openstudio/measure/ShowRunnerOutput'

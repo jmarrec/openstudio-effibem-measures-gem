@@ -1,5 +1,6 @@
-# Author: Julien Marrec
-# email: julien.marrec@gmail.com
+# *******************************************************************************
+# Copyright (c) 2017-2024 Julien Marrec and EffiBEM
+# *******************************************************************************
 
 require 'openstudio'
 require 'openstudio/measure/ShowRunnerOutput'

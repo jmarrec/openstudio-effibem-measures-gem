@@ -3,8 +3,8 @@
   <schema_version>3.1</schema_version>
   <name>set_site_water_mains_temperature</name>
   <uid>0645d9db-5c9a-4ccc-adcd-922cf6aff5e9</uid>
-  <version_id>beb37a7b-64ae-4cb5-8007-a5282e91b3be</version_id>
-  <version_modified>2024-07-17T13:37:03Z</version_modified>
+  <version_id>f92ab4b8-5901-4e68-a24b-8d5ba8aa87ad</version_id>
+  <version_modified>2024-07-17T13:59:13Z</version_modified>
   <xml_checksum>14D53E22</xml_checksum>
   <class_name>SetSiteWaterMainsTemperature</class_name>
   <display_name>Set Site Water Mains Temperature</display_name>
@@ -129,7 +129,7 @@ http://bigladdersoftware.com/epx/docs/9-0/engineering-reference/water-systems.ht
       <filename>LICENSE.md</filename>
       <filetype>md</filetype>
       <usage_type>license</usage_type>
-      <checksum>841D3CC6</checksum>
+      <checksum>9738C8D2</checksum>
     </file>
     <file>
       <filename>README.md</filename>
@@ -152,7 +152,7 @@ http://bigladdersoftware.com/epx/docs/9-0/engineering-reference/water-systems.ht
       <filename>measure.rb</filename>
       <filetype>rb</filetype>
       <usage_type>script</usage_type>
-      <checksum>04626E57</checksum>
+      <checksum>05BB9218</checksum>
     </file>
     <file>
       <filename>SiteMainsWaterCorrelation.xlsx</filename>
@@ -164,7 +164,7 @@ http://bigladdersoftware.com/epx/docs/9-0/engineering-reference/water-systems.ht
       <filename>set_site_water_mains_temperature_test.rb</filename>
       <filetype>rb</filetype>
       <usage_type>test</usage_type>
-      <checksum>846383BA</checksum>
+      <checksum>0EE9724B</checksum>
     </file>
   </files>
 </measure>

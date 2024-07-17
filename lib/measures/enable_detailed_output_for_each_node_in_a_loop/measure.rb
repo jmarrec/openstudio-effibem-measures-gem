@@ -1,10 +1,7 @@
-# Author: Julien Marrec
-# email: julien.marrec@gmail.com
+# *******************************************************************************
+# Copyright (c) 2017-2024 Julien Marrec and EffiBEM
+# *******************************************************************************
 
-# see the URL below for information on how to write OpenStudio measures
-# http://nrel.github.io/OpenStudio-user-documentation/measures/measure_writing_guide/
-
-# start the measure
 class EnableDetailedOutputForEachNodeInALoop < OpenStudio::Measure::ModelMeasure
   # human readable name
   def name
