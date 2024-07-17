@@ -41,9 +41,6 @@ class ApplyNowReportingMeasureTest < Minitest::Test
     # load the test model
     model = OpenStudio::Model.exampleModel
 
-    # store the number of spaces in the seed model
-    num_spaces_seed = model.getSpaces.size
-
     # get arguments
     arguments = measure.arguments(model)
     argument_map = OpenStudio::Measure.convertOSArgumentVectorToMap(arguments)
