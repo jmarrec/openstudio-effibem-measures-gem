@@ -1,0 +1,46 @@
+AllCops:
+  Exclude:
+    - 'lib/measures/*/resources/**/*'
+    # Ignore gitignored files: https://docs.rubocop.org/rubocop/configuration.html#pre-processing
+    <% `git status --ignored --porcelain`.lines.grep(/^!! /).each do |path| %>
+    - <%= path.sub(/^!! /, '').sub(/\/$/, '/**/*') %>
+    <% end %>
+  NewCops: enable
+  TargetRubyVersion: 3.2
+require: rubocop-performance
+inherit_from:
+  - http://s3.amazonaws.com/openstudio-resources/styles/rubocop_v4.yml
+
+# OVERRIDES
+
+# Detect unused variable
+Lint/UselessAssignment:
+  Enabled: true
+
+Lint/UnusedBlockArgument:
+  Enabled: true
+
+Lint/UnusedMethodArgument:
+  Enabled: true
+
+Style/TrailingCommaInHashLiteral:
+  Enabled: true
+  # If `comma`, the cop requires a comma after the last item in a hash,
+  # but only when each item is on its own line.
+  # If `consistent_comma`, the cop requires a comma after the last item of all
+  # non-empty, multiline hash literals.
+  EnforcedStyleForMultiline: comma
+
+Naming/VariableName:
+  Enabled: false
+
+Metrics/ClassLength:
+  Description: 'Avoid classes longer than N lines of code.'
+  Max: 1000
+
+Style/MethodCallWithoutArgsParentheses:
+  Description: 'Do not use parentheses for method calls with no arguments.'
+  Enabled: true
+
+Gemspec/RequireMFA:
+  Enabled: false

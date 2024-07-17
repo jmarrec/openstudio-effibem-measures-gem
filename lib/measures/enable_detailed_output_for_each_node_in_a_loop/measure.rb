@@ -288,7 +288,7 @@ The user is also asked to specify whether or not he wants to include the demand 
     end
 
     num_var_created = model.getOutputVariables.size - init_number_variables
-    if (num_var_created = num_var_to_create)
+    if num_var_created == num_var_to_create
       runner.registerFinalCondition("<b style='color: #4F8A10;background-color:#DFF2BF;'>The model has now #{model.getOutputVariables.size} output variables.</b> #{num_var_created} variables were added.\n")
     else
       runner.registerFinalCondition("The model has now #{model.getOutputVariables.size} output variables")

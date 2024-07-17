@@ -63,7 +63,7 @@ class SetSiteWaterMainsTemperatureTest < Minitest::Test
       test_name = caller_locations(1, 1)[0].label
     end
     sub_dir = run_dir(test_name)
-    FileUtils.rm_f(sub_dir) if File.exist?(sub_dir)
+    FileUtils.rm_f(sub_dir)
     FileUtils.mkdir_p(sub_dir)
 
     if save_model || @@verbose
@@ -98,59 +98,56 @@ class SetSiteWaterMainsTemperatureTest < Minitest::Test
     # get arguments and test that they are what we are expecting
     arguments = measure.arguments(model)
     assert_equal(4, arguments.size)
-    assert_equal("calculation_method", arguments[0].name)
-    assert_equal("temp_sch", arguments[1].name)
-    assert_equal("avg_oa_temp", arguments[2].name)
-    assert_equal("max_diff_monthly_oa_temp", arguments[3].name)
+    assert_equal('calculation_method', arguments[0].name)
+    assert_equal('temp_sch', arguments[1].name)
+    assert_equal('avg_oa_temp', arguments[2].name)
+    assert_equal('max_diff_monthly_oa_temp', arguments[3].name)
   end
 
   # When you choose 'schedule', you have to specify a schedule!
   def test_bad_no_schedule
     model = OpenStudio::Model::Model.new
 
-    args_hash = {"calculation_method" => "Schedule"}
+    args_hash = { 'calculation_method' => 'Schedule' }
 
     # run the measure
     runner = apply_measure_to_model(model, args_hash)
     result = runner.result
 
-    assert_equal("Fail", result.value.valueName)
+    assert_equal('Fail', result.value.valueName)
   end
 
   def _test_bad_temps(avg_oa_temp, max_diff_monthly_oa_temp)
     model = OpenStudio::Model::Model.new
 
     args_hash = {
-      "calculation_method" => "Correlation",
-      "avg_oa_temp" => avg_oa_temp,
-      "max_diff_monthly_oa_temp" => max_diff_monthly_oa_temp,
+      'calculation_method' => 'Correlation',
+      'avg_oa_temp' => avg_oa_temp,
+      'max_diff_monthly_oa_temp' => max_diff_monthly_oa_temp,
     }
 
     runner = apply_measure_to_model(model, args_hash)
     result = runner.result
 
-    assert_equal("Fail", result.value.valueName)
+    assert_equal('Fail', result.value.valueName)
   end
 
   def test_all_bad_temps
-
     # In order
     # avg_oa_temp too low, then too high
     # max_diff_monthly_oa_temp below 0
     # max_diff_monthly_oa_temp above 60
-    avg_oa_temps = [-35,55,26,26]
+    avg_oa_temps = [-35, 55, 26, 26]
     max_diff_monthly_oa_temps = [25, 25, -5, 65]
 
     avg_oa_temps.each_with_index do |avg_oa_temp, i|
       max_diff_monthly_oa_temp = max_diff_monthly_oa_temps[i]
-      puts "============================================================================================================"
+      puts '============================================================================================================'
       puts "                  Testing with avg_oa_temp = #{avg_oa_temp} and max_diff_monthly_oa_temp = #{max_diff_monthly_oa_temp}"
-      puts "============================================================================================================="
+      puts '============================================================================================================='
 
       _test_bad_temps(avg_oa_temp, max_diff_monthly_oa_temp)
     end
-
-
   end
 
   def test_good_argument_values
@@ -160,20 +157,20 @@ class SetSiteWaterMainsTemperatureTest < Minitest::Test
     avg_oa_temp = 13.5
     max_diff_monthly_oa_temp = 26.4
     args_hash = {
-      "calculation_method" => "Correlation",
-      "avg_oa_temp" => avg_oa_temp,
-      "max_diff_monthly_oa_temp" => max_diff_monthly_oa_temp,
+      'calculation_method' => 'Correlation',
+      'avg_oa_temp' => avg_oa_temp,
+      'max_diff_monthly_oa_temp' => max_diff_monthly_oa_temp,
     }
 
     runner = apply_measure_to_model(model, args_hash)
     result = runner.result
 
     # assert that it ran correctly
-    assert_equal("Success", result.value.valueName)
+    assert_equal('Success', result.value.valueName)
 
     refute_empty(model.siteWaterMainsTemperature)
     mains = model.getSiteWaterMainsTemperature
-    assert_equal("Correlation", mains.calculationMethod)
+    assert_equal('Correlation', mains.calculationMethod)
     assert_empty(mains.temperatureSchedule)
 
     refute_empty(mains.annualAverageOutdoorAirTemperature)
@@ -182,5 +179,4 @@ class SetSiteWaterMainsTemperatureTest < Minitest::Test
     refute_empty(mains.maximumDifferenceInMonthlyAverageOutdoorAirTemperatures)
     assert_equal(max_diff_monthly_oa_temp, mains.maximumDifferenceInMonthlyAverageOutdoorAirTemperatures.get)
   end
-
 end

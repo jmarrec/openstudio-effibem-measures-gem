@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Copyright (c) 2021 Julien Marrec and EffiBEM
 
 require 'erb'
@@ -42,7 +44,7 @@ class ApplyNowReportingMeasure < OpenStudio::Measure::ModelMeasure
 
     @space_to_thermal_zone_section = {}
     @sections << @space_to_thermal_zone_section
-    @space_to_thermal_zone_section[:title] = "Mapping Spaces to ThermalZones"
+    @space_to_thermal_zone_section[:title] = 'Mapping Spaces to ThermalZones'
     space_tz_tables = []
     @space_to_thermal_zone_section[:tables] = space_tz_tables
     space_tz_table = {}
@@ -61,7 +63,7 @@ class ApplyNowReportingMeasure < OpenStudio::Measure::ModelMeasure
 
     @space_lpd_section = {}
     @sections << @space_lpd_section
-    @space_lpd_section[:title] = "Spaces LPD"
+    @space_lpd_section[:title] = 'Spaces LPD'
     lpd_tables = []
     @space_lpd_section[:tables] = lpd_tables
     lpd_table = {}
@@ -79,15 +81,14 @@ class ApplyNowReportingMeasure < OpenStudio::Measure::ModelMeasure
     end
     lpd_tables << lpd_table
 
-
     # read in template
-    template_name = "report.html.erb"
+    template_name = 'report.html.erb'
     html_in_path = "#{File.dirname(__FILE__)}/resources/#{template_name}"
-    html_in = File.open(html_in_path, 'r') { |f| f.read }
+    html_in = File.read(html_in_path)
 
     # configure template with variable values
     # And enable trim mode
-    renderer = ERB.new(html_in, nil, '-')
+    renderer = ERB.new(html_in, trim_mode: '-')
     html_out = renderer.result(binding)
     runner.registerWarning(@sections.to_s)
     # either /tmp/osmodel-1622719126-1/ApplyMeasureNow
@@ -95,31 +96,32 @@ class ApplyNowReportingMeasure < OpenStudio::Measure::ModelMeasure
     rootDir = runner.workflow.absoluteRootDir.to_s
 
     html_out_path = 'report.html'
-    if (File.basename(rootDir) == 'ApplyMeasureNow')
+    if File.basename(rootDir) == 'ApplyMeasureNow'
       html_out_path = File.absolute_path(
-        File.join(rootDir, '..', 'resources', 'reports', html_out_path))
+        File.join(rootDir, '..', 'resources', 'reports', html_out_path)
+      )
     else
       html_out_path = File.absolute_path(
-        File.join(rootDir, 'reports', html_out_path))
+        File.join(rootDir, 'reports', html_out_path)
+      )
     end
     outDir = File.dirname(html_out_path)
-    if !File.exists?(outDir)
-      FileUtils.mkdir_p(outDir)
-    end
+
+    FileUtils.mkdir_p(outDir)
 
     runner.registerWarning("File.dirname(__FILE__)=#{File.dirname(__FILE__)}")
     runner.registerWarning("html_out_path=#{html_out_path}")
     runner.registerWarning("File.realpath('./')=#{File.realpath('./')}")
     runner.registerWarning("File.absolute_path('.')=#{File.absolute_path('.')}")
     runner.registerWarning("runner.workflow.absoluteRootDir=#{runner.workflow.absoluteRootDir}")
-    runner.registerWarning("runner.workflow.filePaths=#{runner.workflow.filePaths.map{|p| p.to_s}}")
+    runner.registerWarning("runner.workflow.filePaths=#{runner.workflow.filePaths.map(&:to_s)}")
 
     File.open(html_out_path, 'w') do |file|
       file << html_out
       # make sure data is written to the disk one way or the other
       begin
         file.fsync
-      rescue
+      rescue StandardError
         file.flush
       end
     end

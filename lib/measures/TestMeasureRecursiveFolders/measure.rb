@@ -2,7 +2,6 @@
 require_relative 'resources/resource'
 
 class TestMeasureRecursiveFolders < OpenStudio::Measure::ModelMeasure
-
   # human readable name
   def name
     # Measure name should be the title case of the class name.
@@ -20,12 +19,11 @@ class TestMeasureRecursiveFolders < OpenStudio::Measure::ModelMeasure
   end
 
   # define the arguments that the user will input
-  def arguments(model)
-
+  def arguments(_model)
     # This calls resources/resource.rb with calls
     # resources/subfolder/subresource.rb which in turn loads a json
     # from resources/data/arguments.json
-    return make_arguments()
+    return make_arguments
 
     return args
   end

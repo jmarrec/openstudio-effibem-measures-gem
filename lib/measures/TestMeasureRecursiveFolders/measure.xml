@@ -3,8 +3,8 @@
   <schema_version>3.1</schema_version>
   <name>test_measure_recursive_folders</name>
   <uid>b79e1024-8a7a-4c9d-91bf-6c11de58f4a9</uid>
-  <version_id>99ec3bd4-df84-4cb5-8628-bc6d3eea49a6</version_id>
-  <version_modified>2024-07-17T14:00:13Z</version_modified>
+  <version_id>363a9cca-37eb-4eb6-be18-833f02793eea</version_id>
+  <version_modified>2024-07-17T14:13:45Z</version_modified>
   <xml_checksum>825E3A16</xml_checksum>
   <class_name>TestMeasureRecursiveFolders</class_name>
   <display_name>Test Measure Recursive Folders</display_name>
@@ -66,7 +66,7 @@
       <filename>measure.rb</filename>
       <filetype>rb</filetype>
       <usage_type>script</usage_type>
-      <checksum>3C7F948B</checksum>
+      <checksum>C04089BC</checksum>
     </file>
     <file>
       <filename>data/arguments.json</filename>
@@ -90,7 +90,7 @@
       <filename>a_test_measure_test.rb</filename>
       <filetype>rb</filetype>
       <usage_type>test</usage_type>
-      <checksum>78EE670C</checksum>
+      <checksum>3259BE66</checksum>
     </file>
     <file>
       <filename>example_model.osm</filename>

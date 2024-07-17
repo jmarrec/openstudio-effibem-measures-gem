@@ -3,8 +3,8 @@
   <schema_version>3.1</schema_version>
   <name>apply_now_reporting_measure</name>
   <uid>e43ed467-95da-4c60-ae50-95c225fad661</uid>
-  <version_id>eacfeca6-1aa4-404e-ab15-ac106b77ba31</version_id>
-  <version_modified>2024-07-17T14:02:33Z</version_modified>
+  <version_id>3b05ab43-1c84-4cb2-9c47-f365c9d2e87f</version_id>
+  <version_modified>2024-07-17T14:13:42Z</version_modified>
   <xml_checksum>3075184D</xml_checksum>
   <class_name>ApplyNowReportingMeasure</class_name>
   <display_name>Apply Now Reporting Measure</display_name>
@@ -77,13 +77,13 @@
       <filename>measure.rb</filename>
       <filetype>rb</filetype>
       <usage_type>script</usage_type>
-      <checksum>701E7330</checksum>
+      <checksum>2A398626</checksum>
     </file>
     <file>
       <filename>report.html.erb</filename>
       <filetype>erb</filetype>
       <usage_type>resource</usage_type>
-      <checksum>A4D23E4E</checksum>
+      <checksum>08789CBA</checksum>
     </file>
     <file>
       <filename>apply_now_reporting_measure_test.rb</filename>

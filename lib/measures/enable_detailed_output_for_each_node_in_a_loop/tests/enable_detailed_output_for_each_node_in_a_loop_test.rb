@@ -119,7 +119,6 @@ class EnableDetailedOutputForEachNodeInALoopTest < Minitest::Test
   end
 
   def test_all_cases
-    tests_json = {}
     json_test_file = Pathname.new(__dir__) / 'test_cases.json'
     tests_json = JSON.parse(json_test_file.read)
 
